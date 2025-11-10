@@ -1,0 +1,65 @@
+/* Totally remove scrollbars */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* No scrollbars at all */
+}
+
+/* Make it scrollable internally with no bar */
+body {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.2s ease-out;
+}
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover animation for text */
+.hover-animate {
+  transition: all 0.4s ease;
+  color: #3b2f2f;
+}
+.hover-animate:hover {
+  color: #c58b35;
+  text-shadow: 0 0 15px rgba(197, 139, 53, 0.7);
+  transform: scale(1.05);
+}
+
+/* Floating coffee cup */
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Coffee hover animation */
+.coffee-hover {
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+.coffee-hover:hover {
+  transform: scale(1.15) rotate(5deg);
+  filter: brightness(1.15) drop-shadow(0 0 20px rgba(180, 100, 40, 0.4));
+}
+
+/* Smooth fade for the blurred background */
+.filter.blur-md {
+  filter: blur(6px) brightness(0.9);
+  transition: filter 0.5s ease;
+}
+.filter.blur-md:hover {
+  filter: blur(4px) brightness(1);
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bean & Bloom Café</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#fffaf3] text-[#3b2f2f]">
+
+  <!-- Hero Section -->
+  <section class="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+    <div class="absolute inset-0 w-full h-full bg-black/30 backdrop-blur-sm">
+      <img src="assets/coffee.jpg" alt="coffee background" class="absolute inset-0 w-full h-full object-cover opacity-60 filter blur-md">
+    </div>
+
+    <div class="relative z-10 hero-text">
+      <h1 class="text-5xl md:text-6xl font-bold hover-animate">Bean & Bloom Café</h1>
+      <p class="mt-4 text-xl hover-animate">Brewed with Love, Served with Warmth</p>
+    </div>
+
+    <!-- Floating Coffee Cup Button -->
+    <img src="assets/coffee2.png" alt="coffee cup" id="coffeeButton" class="absolute bottom-10 w-72 max-w-xs md:max-w-md floating coffee-hover cursor-pointer z-20">
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-20 text-center fade-in">
+    <h2 class="text-3xl font-semibold mb-10">Our Menu</h2>
+    <div class="grid md:grid-cols-3 gap-10 px-6 max-w-5xl mx-auto">
+      <div>
+        <h3 class="text-xl font-bold mb-2">☕ Coffee</h3>
+        <p>Espresso — $4</p>
+        <p>Latte — $5</p>
+        <p>Cappuccino — $5</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-2">🍰 Pastries</h3>
+        <p>Croissant — $3</p>
+        <p>Blueberry Muffin — $4</p>
+        <p>Cheesecake — $6</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-2">🧊 Cold Drinks</h3>
+        <p>Iced Americano — $4</p>
+        <p>Cold Brew — $5</p>
+        <p>Iced Mocha — $6</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="bg-[#f9f3e7] py-20 px-6 text-center fade-in">
+    <h2 class="text-3xl font-semibold mb-6">Our Story</h2>
+    <p class="max-w-3xl mx-auto leading-relaxed">
+      Nestled in the heart of the city, Bean & Bloom Café is where cozy mornings meet warm conversations.  
+      We roast our own beans, bake our pastries fresh daily, and pour every cup with care.  
+      Come sip, smile, and stay a while.
+    </p>
+  </section>
+
+  <!-- Find Us -->
+  <section class="py-20 text-center fade-in">
+    <h2 class="text-3xl font-semibold mb-6">Find Us</h2>
+    <div class="max-w-3xl mx-auto">
+      <iframe class="w-full h-64 rounded-xl shadow-md" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.750050932601!2d100.5018!3d13.7563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQ1JzIyLjYiTiAxMDDCsDMwJzA2LjUiRQ!5e0!3m2!1sen!2sth!4v1615908163089!5m2!1sen!2sth"></iframe>
+      <a href="tel:+6599999999" class="inline-block mt-6 bg-[#a87d4a] hover:bg-[#91683a] text-white py-3 px-8 rounded-full transition-all">Call Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#3b2f2f] text-[#fffaf3] py-6 text-center">
+    <p>© 2025 Bean & Bloom Café | Made with ☕ by Otto</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Scroll animation trigger (replays every time)
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('appear');
+        } else {
+          entry.target.classList.remove('appear');
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Smooth scroll when clicking the coffee cup
+    const coffeeButton = document.getElementById('coffeeButton');
+    const menuSection = document.getElementById('menu');
+    coffeeButton.addEventListener('click', () => {
+      menuSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
